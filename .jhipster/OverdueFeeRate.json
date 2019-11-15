@@ -1,0 +1,42 @@
+{
+    "name": "OverdueFeeRate",
+    "fields": [
+        {
+            "fieldName": "afterDays",
+            "fieldType": "Integer",
+            "fieldValidateRules": [
+                "required",
+                "unique"
+            ]
+        },
+        {
+            "fieldName": "dayRate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "overdueFeeRate",
+            "relationshipName": "book",
+            "otherEntityField": "id",
+            "ownerSide": false
+        }
+    ],
+    "changelogDate": "20191115213411",
+    "entityTableName": "overdue_fee_rate",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "LibraryCMS"
+    ]
+}

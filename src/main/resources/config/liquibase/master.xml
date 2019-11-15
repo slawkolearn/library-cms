@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.6.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+    <property name="now" value="current_timestamp" dbms="postgresql"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql, mariadb"/>
+    <property name="clobType" value="longvarchar" dbms="h2"/>
+    <property name="clobType" value="clob" dbms="mysql, oracle, mssql, mariadb, postgresql"/>
+    <property name="uuidType" value="uuid" dbms="h2, postgresql"/>
+
+    <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213405_added_entity_Worker.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213406_added_entity_Client.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213407_added_entity_Book.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213408_added_entity_Author.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213409_added_entity_Rating.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213410_added_entity_BookLoan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213411_added_entity_OverdueFeeRate.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213412_added_entity_Fee.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20191115213407_added_entity_constraints_Book.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213409_added_entity_constraints_Rating.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213410_added_entity_constraints_BookLoan.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20191115213412_added_entity_constraints_Fee.xml" relativeToChangelogFile="false"/>
+    <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
+</databaseChangeLog>

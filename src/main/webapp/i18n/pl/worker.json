@@ -1,0 +1,25 @@
+{
+  "libraryCmsApp": {
+    "worker": {
+      "home": {
+        "title": "Worker",
+        "createLabel": "Dodaj Worker",
+        "createOrEditLabel": "Dodaj lub edytuj: Worker",
+        "notFound": "No Workers found"
+      },
+      "created": "Utworzono nowy obiekt typu Worker z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Worker z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Worker z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Worker {{ id }}?"
+      },
+      "detail": {
+        "title": "Worker"
+      },
+      "fullName": "Full Name",
+      "dateOfBirth": "Date Of Birth",
+      "addressDetails": "Address Details",
+      "contactDetails": "Contact Details"
+    }
+  }
+}

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="client">
+            <h2><span jhiTranslate="libraryCmsApp.client.detail.title">Client</span> {{client.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="libraryCmsApp.client.number">Number</span></dt>
+                <dd>
+                    <span>{{client.number}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.client.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{client.fullName}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.client.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{client.dateOfBirth}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.client.addressDetails">Address Details</span></dt>
+                <dd>
+                    <span>{{client.addressDetails}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.client.contactDetails">Contact Details</span></dt>
+                <dd>
+                    <span>{{client.contactDetails}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/client', client.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

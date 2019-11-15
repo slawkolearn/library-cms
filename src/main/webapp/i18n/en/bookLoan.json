@@ -1,0 +1,26 @@
+{
+  "libraryCmsApp": {
+    "bookLoan": {
+      "home": {
+        "title": "Book Loans",
+        "createLabel": "Create a new Book Loan",
+        "createOrEditLabel": "Create or edit a Book Loan",
+        "notFound": "No Book Loans found"
+      },
+      "created": "A new Book Loan is created with identifier {{ param }}",
+      "updated": "A Book Loan is updated with identifier {{ param }}",
+      "deleted": "A Book Loan is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Book Loan {{ id }}?"
+      },
+      "detail": {
+        "title": "Book Loan"
+      },
+      "loanStartTimestamp": "Loan Start Timestamp",
+      "declaredLoanEndTimestamp": "Declared Loan End Timestamp",
+      "fee": "Fee",
+      "book": "Book",
+      "client": "Client"
+    }
+  }
+}

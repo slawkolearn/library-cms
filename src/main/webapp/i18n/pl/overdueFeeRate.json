@@ -1,0 +1,24 @@
+{
+  "libraryCmsApp": {
+    "overdueFeeRate": {
+      "home": {
+        "title": "Overdue Fee Rate",
+        "createLabel": "Dodaj Overdue Fee Rate",
+        "createOrEditLabel": "Dodaj lub edytuj: Overdue Fee Rate",
+        "notFound": "No Overdue Fee Rates found"
+      },
+      "created": "Utworzono nowy obiekt typu Overdue Fee Rate z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Overdue Fee Rate z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Overdue Fee Rate z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Overdue Fee Rate {{ id }}?"
+      },
+      "detail": {
+        "title": "Overdue Fee Rate"
+      },
+      "afterDays": "After Days",
+      "dayRate": "Day Rate",
+      "book": "Book"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "libraryCmsApp": {
+    "fee": {
+      "home": {
+        "title": "Fee",
+        "createLabel": "Dodaj Fee",
+        "createOrEditLabel": "Dodaj lub edytuj: Fee",
+        "notFound": "No Fees found"
+      },
+      "created": "Utworzono nowy obiekt typu Fee z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Fee z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Fee z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Fee {{ id }}?"
+      },
+      "detail": {
+        "title": "Fee"
+      },
+      "fee": "Fee",
+      "description": "Description",
+      "book": "Book"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "libraryCmsApp": {
+    "client": {
+      "home": {
+        "title": "Client",
+        "createLabel": "Dodaj Client",
+        "createOrEditLabel": "Dodaj lub edytuj: Client",
+        "notFound": "No Clients found"
+      },
+      "created": "Utworzono nowy obiekt typu Client z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Client z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Client z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Client {{ id }}?"
+      },
+      "detail": {
+        "title": "Client"
+      },
+      "number": "Number",
+      "fullName": "Full Name",
+      "dateOfBirth": "Date Of Birth",
+      "addressDetails": "Address Details",
+      "contactDetails": "Contact Details",
+      "loan": "Loan"
+    }
+  }
+}

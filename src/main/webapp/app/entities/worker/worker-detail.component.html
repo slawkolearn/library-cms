@@ -1,0 +1,39 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="worker">
+            <h2><span jhiTranslate="libraryCmsApp.worker.detail.title">Worker</span> {{worker.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="libraryCmsApp.worker.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{worker.fullName}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.worker.dateOfBirth">Date Of Birth</span></dt>
+                <dd>
+                    <span>{{worker.dateOfBirth}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.worker.addressDetails">Address Details</span></dt>
+                <dd>
+                    <span>{{worker.addressDetails}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.worker.contactDetails">Contact Details</span></dt>
+                <dd>
+                    <span>{{worker.contactDetails}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/worker', worker.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

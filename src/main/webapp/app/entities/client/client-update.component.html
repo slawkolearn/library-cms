@@ -1,0 +1,71 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-client-heading" jhiTranslate="libraryCmsApp.client.home.createOrEditLabel">Create or edit a Client</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.client.number" for="field_number">Number</label>
+                    <input type="text" class="form-control" name="number" id="field_number"
+                           formControlName="number"/>
+                    <div *ngIf="editForm.get('number').invalid && (editForm.get('number').dirty || editForm.get('number').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('number').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.client.fullName" for="field_fullName">Full Name</label>
+                    <input type="text" class="form-control" name="fullName" id="field_fullName"
+                           formControlName="fullName"/>
+                    <div *ngIf="editForm.get('fullName').invalid && (editForm.get('fullName').dirty || editForm.get('fullName').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fullName').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.client.dateOfBirth" for="field_dateOfBirth">Date Of Birth</label>
+                    <div class="input-group">
+                        <input id="field_dateOfBirth" type="text" class="form-control" name="dateOfBirth" ngbDatepicker  #dateOfBirthDp="ngbDatepicker" formControlName="dateOfBirth"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateOfBirthDp.toggle()"><fa-icon [icon]="'calendar-alt'"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('dateOfBirth').invalid && (editForm.get('dateOfBirth').dirty || editForm.get('dateOfBirth').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('dateOfBirth').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.client.addressDetails" for="field_addressDetails">Address Details</label>
+                    <input type="text" class="form-control" name="addressDetails" id="field_addressDetails"
+                           formControlName="addressDetails"/>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.client.contactDetails" for="field_contactDetails">Contact Details</label>
+                    <input type="text" class="form-control" name="contactDetails" id="field_contactDetails"
+                           formControlName="contactDetails"/>
+                </div>
+
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

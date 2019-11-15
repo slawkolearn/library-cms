@@ -1,0 +1,30 @@
+{
+  "libraryCmsApp": {
+    "book": {
+      "home": {
+        "title": "Book",
+        "createLabel": "Dodaj Book",
+        "createOrEditLabel": "Dodaj lub edytuj: Book",
+        "notFound": "No Books found"
+      },
+      "created": "Utworzono nowy obiekt typu Book z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Book z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Book z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Book {{ id }}?"
+      },
+      "detail": {
+        "title": "Book"
+      },
+      "name": "Name",
+      "description": "Description",
+      "maxBorrowingDays": "Max Borrowing Days",
+      "borowwingDayRate": "Borowwing Day Rate",
+      "additionalInfo": "Additional Info",
+      "rating": "Rating",
+      "loan": "Loan",
+      "overdueFeeRate": "Overdue Fee Rate",
+      "author": "Author"
+    }
+  }
+}
