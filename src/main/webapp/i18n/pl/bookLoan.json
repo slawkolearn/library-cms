@@ -1,0 +1,26 @@
+{
+  "libraryCmsApp": {
+    "bookLoan": {
+      "home": {
+        "title": "Book Loan",
+        "createLabel": "Dodaj Book Loan",
+        "createOrEditLabel": "Dodaj lub edytuj: Book Loan",
+        "notFound": "No Book Loans found"
+      },
+      "created": "Utworzono nowy obiekt typu Book Loan z identyfikatorem {{ param }}",
+      "updated": "Uaktualniono obiekt typu Book Loan z identyfikatorem {{ param }}",
+      "deleted": "Usunięto obiekt typu Book Loan z identyfikatorem {{ param }}",
+      "delete": {
+        "question": "Czy na pewno chcesz usunąć Book Loan {{ id }}?"
+      },
+      "detail": {
+        "title": "Book Loan"
+      },
+      "loanStartTimestamp": "Loan Start Timestamp",
+      "declaredLoanEndTimestamp": "Declared Loan End Timestamp",
+      "fee": "Fee",
+      "book": "Book",
+      "client": "Client"
+    }
+  }
+}

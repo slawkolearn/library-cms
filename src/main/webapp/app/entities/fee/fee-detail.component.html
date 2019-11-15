@@ -1,0 +1,37 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="fee">
+            <h2><span jhiTranslate="libraryCmsApp.fee.detail.title">Fee</span> {{fee.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="libraryCmsApp.fee.fee">Fee</span></dt>
+                <dd>
+                    <span>{{fee.fee}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.fee.description">Description</span></dt>
+                <dd>
+                    <span>{{fee.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.fee.book">Book</span></dt>
+                <dd>
+                    <div *ngIf="fee.bookId">
+                        <a [routerLink]="['/book-loan', fee.bookId, 'view']">{{fee.bookId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/fee', fee.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

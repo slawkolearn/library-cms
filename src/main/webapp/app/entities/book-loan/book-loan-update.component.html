@@ -1,0 +1,72 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-book-loan-heading" jhiTranslate="libraryCmsApp.bookLoan.home.createOrEditLabel">Create or edit a Book Loan</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!editForm.get('id').value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id"
+                        readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.bookLoan.loanStartTimestamp" for="field_loanStartTimestamp">Loan Start Timestamp</label>
+                    <div class="d-flex">
+                        <input id="field_loanStartTimestamp" type="datetime-local" class="form-control" name="loanStartTimestamp" formControlName="loanStartTimestamp" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                    <div *ngIf="editForm.get('loanStartTimestamp').invalid && (editForm.get('loanStartTimestamp').dirty || editForm.get('loanStartTimestamp').touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('loanStartTimestamp').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('loanStartTimestamp').errors?.ZonedDateTimelocal" jhiTranslate="entity.validation.ZonedDateTimelocal">
+                            This field should be a date and time.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.bookLoan.declaredLoanEndTimestamp" for="field_declaredLoanEndTimestamp">Declared Loan End Timestamp</label>
+                    <div class="d-flex">
+                        <input id="field_declaredLoanEndTimestamp" type="datetime-local" class="form-control" name="declaredLoanEndTimestamp" formControlName="declaredLoanEndTimestamp" placeholder="YYYY-MM-DD HH:mm"/>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.bookLoan.book" for="field_book">Book</label>
+                    <select class="form-control" id="field_book" name="book" formControlName="bookId">
+                        <option *ngIf="!editForm.get('bookId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="bookOption.id" *ngFor="let bookOption of books; trackBy: trackBookById">{{bookOption.id}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('bookId').invalid && (editForm.get('bookId').dirty || editForm.get('bookId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('bookId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="libraryCmsApp.bookLoan.client" for="field_client">Client</label>
+                    <select class="form-control" id="field_client" name="client" formControlName="clientId">
+                        <option *ngIf="!editForm.get('clientId').value" [ngValue]="null" selected></option>
+                        <option [ngValue]="clientOption.id" *ngFor="let clientOption of clients; trackBy: trackClientById">{{clientOption.id}}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('clientId').invalid && (editForm.get('clientId').dirty || editForm.get('clientId').touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('clientId').errors.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

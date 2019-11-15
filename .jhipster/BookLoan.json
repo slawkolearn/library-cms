@@ -1,0 +1,52 @@
+{
+    "name": "BookLoan",
+    "fields": [
+        {
+            "fieldName": "loanStartTimestamp",
+            "fieldType": "Instant",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "declaredLoanEndTimestamp",
+            "fieldType": "Instant"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "fee",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "fee"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "book",
+            "otherEntityRelationshipName": "loan",
+            "relationshipValidateRules": "required",
+            "relationshipName": "book",
+            "otherEntityField": "id"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "client",
+            "otherEntityRelationshipName": "loan",
+            "relationshipValidateRules": "required",
+            "relationshipName": "client",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191115213410",
+    "entityTableName": "book_loan",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "LibraryCMS"
+    ]
+}

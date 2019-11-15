@@ -1,0 +1,55 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="book">
+            <h2><span jhiTranslate="libraryCmsApp.book.detail.title">Book</span> {{book.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="libraryCmsApp.book.name">Name</span></dt>
+                <dd>
+                    <span>{{book.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.description">Description</span></dt>
+                <dd>
+                    <span>{{book.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.maxBorrowingDays">Max Borrowing Days</span></dt>
+                <dd>
+                    <span>{{book.maxBorrowingDays}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.borowwingDayRate">Borowwing Day Rate</span></dt>
+                <dd>
+                    <span>{{book.borowwingDayRate}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.additionalInfo">Additional Info</span></dt>
+                <dd>
+                    <span>{{book.additionalInfo}}</span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.overdueFeeRate">Overdue Fee Rate</span></dt>
+                <dd>
+                    <span *ngFor="let overdueFeeRate of book.overdueFeeRates; let last = last">
+                        <a [routerLink]="['/overdue-fee-rate', overdueFeeRate?.id, 'view' ]">{{overdueFeeRate.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+                <dt><span jhiTranslate="libraryCmsApp.book.author">Author</span></dt>
+                <dd>
+                    <div *ngIf="book.authorId">
+                        <a [routerLink]="['/author', book.authorId, 'view']">{{book.authorId}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/book', book.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

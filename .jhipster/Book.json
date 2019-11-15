@@ -1,0 +1,73 @@
+{
+    "name": "Book",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "maxBorrowingDays",
+            "fieldType": "Integer"
+        },
+        {
+            "fieldName": "borowwingDayRate",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "additionalInfo",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "rating",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "rating"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "otherEntityName": "bookLoan",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "loan"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityName": "overdueFeeRate",
+            "otherEntityRelationshipName": "book",
+            "relationshipName": "overdueFeeRate",
+            "otherEntityField": "id",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "author",
+            "otherEntityRelationshipName": "book",
+            "relationshipValidateRules": "required",
+            "relationshipName": "author",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191115213407",
+    "entityTableName": "book",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "LibraryCMS"
+    ]
+}

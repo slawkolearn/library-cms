@@ -1,0 +1,41 @@
+{
+    "name": "Fee",
+    "fields": [
+        {
+            "fieldName": "fee",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "otherEntityName": "bookLoan",
+            "otherEntityRelationshipName": "fee",
+            "relationshipValidateRules": "required",
+            "relationshipName": "book",
+            "otherEntityField": "id"
+        }
+    ],
+    "changelogDate": "20191115213412",
+    "entityTableName": "fee",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "readOnly": false,
+    "clientRootFolder": "",
+    "applications": [
+        "LibraryCMS"
+    ]
+}

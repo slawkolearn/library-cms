@@ -1,0 +1,82 @@
+application {
+  config {
+    baseName LibraryCMS
+    applicationType monolith
+    buildTool maven
+    databaseType sql
+    prodDatabaseType postgresql
+    clientPackageManager npm
+    clientFramework angularX
+    packageName pl.edu.pjatk.librarycms
+    serverPort 8080
+    authenticationType jwt
+    languages [en, pl]
+    nativeLanguage en
+  }
+  entities *
+}
+
+entity Worker {
+    fullName String required
+    dateOfBirth LocalDate required
+    addressDetails String
+    contactDetails String
+}
+
+entity Client {
+    number String required unique
+    fullName String required
+    dateOfBirth LocalDate required
+    addressDetails String
+    contactDetails String
+}
+
+entity Book {
+    name String required
+    description String
+    maxBorrowingDays Integer
+    borowwingDayRate BigDecimal required
+    additionalInfo String
+}
+
+entity Author {
+    name String required
+    description String
+}
+
+entity Rating {
+    rating Integer required
+    comment String
+}
+
+entity BookLoan {
+    loanStartTimestamp Instant required
+    declaredLoanEndTimestamp Instant
+}
+
+entity OverdueFeeRate {
+    afterDays Integer required unique
+    dayRate BigDecimal required
+}
+
+entity Fee {
+    fee BigDecimal required
+    description String required
+}
+
+relationship OneToMany {
+    Book{rating} to Rating{book required}
+    Book{loan} to BookLoan{book required}
+    Client{loan} to BookLoan{client required}
+    BookLoan{fee} to Fee{book required}
+    Author{book} to Book{author required}
+}
+
+relationship ManyToMany {
+    Book{overdueFeeRate} to OverdueFeeRate{book}
+}
+
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination
+
