@@ -10,101 +10,73 @@ application {
     packageName pl.edu.pjatk.librarycms
     serverPort 8080
     authenticationType jwt
+    languages [en, pl]
+    nativeLanguage en
   }
+  entities *
 }
 
-entity User {
-	login String required
-    password String required
-    email String required
-}
-
-enum UserRole {
-	CLIENT,
-    MANAGER,
-    ADMIN
+entity Worker {
+    fullName String required
+    dateOfBirth LocalDate required
+    addressDetails String
+    contactDetails String
 }
 
 entity Client {
-	number String required
-	fullName String required
+    number String required unique
+    fullName String required
     dateOfBirth LocalDate required
     addressDetails String
     contactDetails String
 }
 
 entity Book {
-	name String required
+    name String required
     description String
     maxBorrowingDays Integer
+    borowwingDayRate BigDecimal required
+    additionalInfo String
 }
 
 entity Author {
-	name String required
+    name String required
     description String
 }
 
 entity Rating {
-	rating Integer required
+    rating Integer required
     comment String
 }
 
-entity BorrowedBook {
-	borrowTimestamp Instant
-    declaredReturnTimestamp Instant
-}
-
-entity BorrowingFeeRate {
-	dayRate BigDecimal required
+entity BookLoan {
+    loanStartTimestamp Instant required
+    declaredLoanEndTimestamp Instant
 }
 
 entity OverdueFeeRate {
-	afterDays Integer required
-	dayRate BigDecimal required
+    afterDays Integer required unique
+    dayRate BigDecimal required
 }
 
 entity Fee {
-	fee BigDecimal required
-}
-
-relationship OneToOne {
-	User{role required} to UserRole
-}
-
-relationship OneToOne {
-	User{client} to Client
-}
-
-relationship OneToOne {
-	Book{author required} to Author
+    fee BigDecimal required
+    description String required
 }
 
 relationship OneToMany {
-	Book{ratings} to Rating
+    Book{rating} to Rating{book required}
+    Book{loan} to BookLoan{book required}
+    Client{loan} to BookLoan{client required}
+    BookLoan{fee} to Fee{book required}
+    Author{book} to Book{author required}
 }
 
-relationship OneToOne {
-	Rating{ratingAuthor} to User
+relationship ManyToMany {
+    Book{overdueFeeRate} to OverdueFeeRate{book}
 }
 
-relationship OneToMany {
-	Client{borrowedBooks} to BorrowedBook
-}
-
-relationship ManyToOne {
-    Fee{borrowedBook required} to BorrowedBook
-}
-
-// Set pagination options
-// paginate JobHistory, Employee with infinite-scroll
-// paginate Job with pagination
-
-// Use Data Transfert Objects (DTO)
-// dto * with mapstruct
-
-// Set service options to all except few
-// service all with serviceImpl except Employee, Job
-
-// Set an angular suffix
-// angularSuffix * with mySuffix
+dto * with mapstruct
+service all with serviceImpl
+paginate * with pagination
 
